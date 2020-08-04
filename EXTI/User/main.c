@@ -2,10 +2,10 @@
 #include "bsp_led.h"
 #include "bsp_exti.h"
 
-void Delay(uint32_t count)
+/*void Delay(uint32_t count)
 {
 	for(; count!=0; count--);
-}
+}*/
 
 int main(void)
 {
