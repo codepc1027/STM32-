@@ -1,16 +1,16 @@
 #include "bsp_usart.h"
 
-//void NVIC_Config(void)
-//{
-//	NVIC_InitTypeDef NVIC_InitStruct;
-//	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
-//	
-//	NVIC_InitStruct.NVIC_IRQChannel = DEBUG_USART_IRQ;
-//	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1;
-//	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 1;
-//	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
-//	NVIC_Init(&NVIC_InitStruct);
-//}
+void NVIC_Config(void)
+{
+	NVIC_InitTypeDef NVIC_InitStruct;
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
+	
+	NVIC_InitStruct.NVIC_IRQChannel = DEBUG_USART_IRQ;
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 1;
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+	NVIC_Init(&NVIC_InitStruct);
+}
 
 void USART_Config(void)
 {
@@ -48,11 +48,11 @@ void USART_Config(void)
 	//完成串口初始化配置
 	USART_Init(DEBUG_USARTx, &USART_InitStruct);
 	
-//	//串口中断优先级配置
-//	NVIC_Config();
-//	
-//	//使能串口接收中断
-//	USART_ITConfig(DEBUG_USARTx, USART_IT_RXNE, ENABLE);
+	//串口中断优先级配置
+	NVIC_Config();
+	
+	//使能串口接收中断
+	USART_ITConfig(DEBUG_USARTx, USART_IT_RXNE, ENABLE);
 	
 	//使能串口
 	USART_Cmd(DEBUG_USARTx, ENABLE);
